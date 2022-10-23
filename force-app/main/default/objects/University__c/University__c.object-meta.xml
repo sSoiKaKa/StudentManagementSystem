@@ -155,8 +155,9 @@
     <externalSharingModel>Private</externalSharingModel>
     <label>University</label>
     <nameField>
-        <label>University Name</label>
-        <type>Text</type>
+        <displayFormat>UNI-{0000000000}</displayFormat>
+        <label>University Id</label>
+        <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Universities</pluralLabel>
     <searchLayouts></searchLayouts>
