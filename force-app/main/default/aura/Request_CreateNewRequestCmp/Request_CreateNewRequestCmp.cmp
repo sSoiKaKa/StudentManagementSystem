@@ -1,0 +1,93 @@
+<!--
+  @description       : 
+  @author            : Tuan Tran
+  @group             : 
+  @last modified on  : 11-12-2022
+  @last modified by  : Tuan Tran
+-->
+<aura:component
+  implements="flexipage:availableForAllPageTypes,force:hasRecordId"
+  access="global"
+>
+  <aura:html tag="style" aura:id="newModalStyle">
+    .slds-modal__container { min-width: 80%;outline:none;} .slds-modal {
+    outline:none;} slds-modal__content { min-height: 80%; box-shadow:
+    none!important;}
+    .slds-modal__content.slds-p-around--medium{background-color: transparent
+    !important; display: contents;}
+    .slds-button__icon.slds-button__icon_large.slds-button_icon-inverse{color:transparent
+    !important;}
+    .slds-button.slds-button_icon.slds-modal__close.closeIcon.slds-button_icon-bare.slds-button_icon-inverse{display:none;}
+    .quick-actions-panel.slds-modal__content.slds-p-around--medium { display:
+    contents; }
+  </aura:html>
+  <aura:attribute name="isModalOpen" type="Boolean" default="true" />
+  <aura:attribute name="requestRecord" type="Object" />
+  <aura:attribute name="requestFields" type="Object" />
+  <aura:attribute name="requestError" type="String" />
+  <aura:attribute name="requestType" type="String" />
+  <aura:attribute name="requestHeader" type="String" />
+  <aura:attribute name="lsVisibleFields" type="List" default="[]" />
+  <aura:attribute name="lsVisibleFieldsWHeader" type="List" default="[]" />
+  <aura:handler name="init" value="{!this}" action="{!c.init}" />
+  <!-- <aura:handler
+    name="change"
+    value="{!v.requestHeader}"
+    action="{!c.onRequestHeaderChanged}"
+  /> -->
+  <force:recordData
+    aura:id="requestRecordCreator"
+    recordId="{!v.recordId}"
+    fields="Request_Type__c, Request_Header__c, Student__c"
+    targetRecord="{!v.requestRecord}"
+    targetFields="{!v.requestFields}"
+    targetError="{!v.requestError}"
+    recordUpdated="{!c.onRecordUpdated}"
+  />
+  <aura:if isTrue="{!v.isFirstLoad}">
+    <div class="customSpinHolder">
+      <lightning:spinner alternativeText="Loading" size="medium" />
+    </div>
+  </aura:if>
+
+  <lightning:recordEditForm
+    onload="{!c.onRecordLoad}"
+    onsuccess="{!c.onCreateSuccess}"
+    onerror="{!c.onCreateError}"
+    aura:id="recordEditForm"
+    recordId="{!v.recordId}"
+    objectApiName="Request__c"
+  >
+    <lightning:card
+      title="{!v.requestHeader}"
+      iconName="standard:contact"
+      variant="base"
+      class="slds-card_boundary"
+    >
+      <div class="slds-m-around_large">
+        <div class="slds-grid slds-wrap slds-form_stacked slds-form">
+          <lightning:outputField fieldName="Request_Type__c" />
+        </div>
+        <div class="slds-grid slds-wrap slds-form_stacked slds-form">
+          <lightning:outputField fieldName="Request_Header__c" />
+        </div>
+        <aura:if isTrue="{!not(empty(v.requestHeader))}">
+          <aura:iteration items="{!v.lsVisibleFieldsWHeader}" var="item">
+            <lightning:inputField
+              fieldName="{!item.fieldApi}"
+              disabled="{!item.disabled}"
+            />
+          </aura:iteration>
+        </aura:if>
+      </div>
+    </lightning:card>
+    <div class="slds-docked-form-footer">
+      <lightning:button variant="destructive" onclick="{!c.onDelete}">
+        Delete
+      </lightning:button>
+      <lightning:button variant="brand" onclick="{!c.onSubmit}">
+        Submit
+      </lightning:button>
+    </div>
+  </lightning:recordEditForm>
+</aura:component>

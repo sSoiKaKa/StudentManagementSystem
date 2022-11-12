@@ -18,9 +18,9 @@
                 <label>Student Card Re-issuance</label>
             </value>
             <value>
-                <fullName>Application for Graduation recognition</fullName>
+                <fullName>Application for Graduation Recognition</fullName>
                 <default>false</default>
-                <label>Application for Graduation recognition</label>
+                <label>Application for Graduation Recognition</label>
             </value>
             <value>
                 <fullName>Application for Deferred Graduation</fullName>
@@ -33,9 +33,9 @@
                 <label>Application for Study Promotion Scholarship</label>
             </value>
             <value>
-                <fullName>Application for Second Program Registration</fullName>
+                <fullName>Second Program Registration</fullName>
                 <default>false</default>
-                <label>Application for Second Program Registration</label>
+                <label>Second Program Registration</label>
             </value>
             <value>
                 <fullName>Handling the Procedure for University Dropout</fullName>
@@ -124,7 +124,7 @@
         </valueSettings>
         <valueSettings>
             <controllingFieldValue>Request</controllingFieldValue>
-            <valueName>Application for Graduation recognition</valueName>
+            <valueName>Application for Graduation Recognition</valueName>
         </valueSettings>
         <valueSettings>
             <controllingFieldValue>Request</controllingFieldValue>
@@ -136,7 +136,7 @@
         </valueSettings>
         <valueSettings>
             <controllingFieldValue>Request</controllingFieldValue>
-            <valueName>Application for Second Program Registration</valueName>
+            <valueName>Second Program Registration</valueName>
         </valueSettings>
         <valueSettings>
             <controllingFieldValue>Request</controllingFieldValue>

@@ -160,7 +160,9 @@
         <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Faculties</pluralLabel>
-    <searchLayouts></searchLayouts>
+    <searchLayouts>
+        <searchResultsAdditionalFields>Faculty_Name__c</searchResultsAdditionalFields>
+    </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
     <visibility>Public</visibility>
 </CustomObject>
