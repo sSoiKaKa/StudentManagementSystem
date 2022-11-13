@@ -1,15 +1,16 @@
+/* eslint-disable no-console */
 ({
   setVisibleFieldList: function (cmp) {
     var lsVisibleFields = [];
     lsVisibleFields.push({
       requestType: "Request",
       requestHeader: "Student Card Re-issuance",
-      visibleFields: [{ fieldApi: "Reason__c", disabled: false }]
+      visibleFields: ["isReasonSelected"]
     });
     lsVisibleFields.push({
       requestType: "Request",
       requestHeader: "Application for Graduation Recognition",
-      visibleFields: [{ fieldApi: "Academic_Term__c", disabled: false }]
+      visibleFields: ["isAcademicTermSelected"]
     });
     lsVisibleFields.push({
       requestType: "Request",
@@ -19,103 +20,100 @@
     lsVisibleFields.push({
       requestType: "Request",
       requestHeader: "Application for Study Promotion Scholarship",
-      visibleFields: [
-        { fieldApi: "Academic_Term__c", disabled: false },
-        { fieldApi: "Note__c", disabled: false }
-      ]
+      visibleFields: ["isAcademicTermSelected", "isNoteSelected"]
     });
     lsVisibleFields.push({
       requestType: "Request",
       requestHeader: "Second Program Registration",
       visibleFields: [
-        { fieldApi: "Academic_Term__c", disabled: false },
-        { fieldApi: "Faculty__c", disabled: false },
-        { fieldApi: "Major__c", disabled: false }
+        "isAcademicTermSelected",
+        "isFacultySelected",
+        "isMajorSelected"
       ]
     });
     lsVisibleFields.push({
       requestType: "Request",
       requestHeader: "Handling the Procedure for University Dropout",
-      visibleFields: [{ fieldApi: "Reason__c", disabled: false }]
+      visibleFields: ["isReasonSelected"]
     });
     lsVisibleFields.push({
       requestType: "Request & Issue Written Confirmation",
       requestHeader: "Semester Transcript Issuance",
       visibleFields: [
-        { fieldApi: "Is_Free_Issuance_Available__c", disabled: true },
-        { fieldApi: "Number_of_Free_Issuance__c", disabled: false },
-        { fieldApi: "Issuance_type__c", disabled: false },
-        { fieldApi: "Academic_Term__c", disabled: false },
-        { fieldApi: "Quantity__c", disabled: false },
-        { fieldApi: "Fee__c", disabled: false },
-        { fieldApi: "Note__c", disabled: false }
+        "isIsFreeIssuanceAvailableSelected",
+        "isNumberOfFreeIssuanceSelected",
+        "isIssuanceTypeSelected",
+        "isAcademicTermSelected",
+        "isQuantitySelected",
+        "isFeeSelected",
+        "isNoteSelected"
       ]
     });
     lsVisibleFields.push({
       requestType: "Request & Issue Written Confirmation",
       requestHeader: "Academic Year Transcript Issuance",
       visibleFields: [
-        { fieldApi: "Is_Free_Issuance_Available__c", disabled: true },
-        { fieldApi: "Academic_Term__c", disabled: false },
-        { fieldApi: "Quantity__c", disabled: false },
-        { fieldApi: "Fee__c", disabled: false },
-        { fieldApi: "Note__c", disabled: false }
+        "isIsFreeIssuanceAvailableSelected",
+        "isAcademicTermSelected",
+        "isQuantitySelected",
+        "isFeeSelected",
+        "isNoteSelected"
       ]
     });
     lsVisibleFields.push({
       requestType: "Request & Issue Written Confirmation",
       requestHeader: "Academic Record Transcript Issuance",
       visibleFields: [
-        { fieldApi: "Is_Free_Issuance_Available__c", disabled: true },
-        { fieldApi: "Quantity__c", disabled: false },
-        { fieldApi: "Fee__c", disabled: false },
-        { fieldApi: "Note__c", disabled: false }
+        "isIsFreeIssuanceAvailableSelected",
+        "isQuantitySelected",
+        "isFeeSelected",
+        "isNoteSelected"
       ]
     });
     lsVisibleFields.push({
       requestType: "Request & Issue Written Confirmation",
       requestHeader: "Training Point Transcript Issuance",
       visibleFields: [
-        { fieldApi: "Is_Free_Issuance_Available__c", disabled: true },
-        { fieldApi: "Quantity__c", disabled: false },
-        { fieldApi: "Fee__c", disabled: false },
-        { fieldApi: "Note__c", disabled: false }
+        "isIsFreeIssuanceAvailableSelected",
+        "isQuantitySelected",
+        "isFeeSelected",
+        "isNoteSelected"
       ]
     });
     lsVisibleFields.push({
       requestType: "Request & Issue Written Confirmation",
       requestHeader: "Written Confirmation for Military Service Postponement",
       visibleFields: [
-        { fieldApi: "Is_Free_Issuance_Available__c", disabled: true },
-        { fieldApi: "Number_of_Free_Issuance__c", disabled: false },
-        { fieldApi: "Issuance_type__c", disabled: false },
-        { fieldApi: "Quantity__c", disabled: false },
-        { fieldApi: "Fee__c", disabled: false },
-        { fieldApi: "Note__c", disabled: false }
+        "isIsFreeIssuanceAvailableSelected",
+        "isNumberOfFreeIssuanceSelected",
+        "isIssuanceTypeSelected",
+        "isQuantitySelected",
+        "isFeeSelected",
+        "isNoteSelected"
       ]
     });
     lsVisibleFields.push({
       requestType: "Request & Issue Written Confirmation",
       requestHeader: "Student Confirmation",
       visibleFields: [
-        { fieldApi: "Is_Free_Issuance_Available__c", disabled: true },
-        { fieldApi: "Number_of_Free_Issuance__c", disabled: false },
-        { fieldApi: "Issuance_type__c", disabled: false },
-        { fieldApi: "Quantity__c", disabled: false },
-        { fieldApi: "Fee__c", disabled: false },
-        { fieldApi: "Note__c", disabled: false }
+        "isIsFreeIssuanceAvailableSelected",
+        "isNumberOfFreeIssuanceSelected",
+        "isIssuanceTypeSelected",
+        "isQuantitySelected",
+        "isFeeSelected",
+        "isNoteSelected"
       ]
     });
     lsVisibleFields.push({
       requestType: "Request & Issue Written Confirmation",
       requestHeader: "Student Loan Confirmation",
       visibleFields: [
-        { fieldApi: "Is_Free_Issuance_Available__c", disabled: true },
-        { fieldApi: "Number_of_Free_Issuance__c", disabled: false },
-        { fieldApi: "Issuance_type__c", disabled: false },
-        { fieldApi: "Quantity__c", disabled: false },
-        { fieldApi: "Fee__c", disabled: false },
-        { fieldApi: "Note__c", disabled: false }
+        "isIsFreeIssuanceAvailableSelected",
+        "isNumberOfFreeIssuanceSelected",
+        "isIssuanceTypeSelected",
+        "isQuantitySelected",
+        "isFeeSelected",
+        "isNoteSelected"
       ]
     });
     lsVisibleFields.push({
@@ -131,18 +129,12 @@
     lsVisibleFields.push({
       requestType: "Postpone the Exam, Register for Additional Exam",
       requestHeader: "Exam Postponement",
-      visibleFields: [
-        { fieldApi: "Academic_Term__c", disabled: false },
-        { fieldApi: "Subject__c", disabled: false }
-      ]
+      visibleFields: ["isAcademicTermSelected", "isSubjectSelected"]
     });
     lsVisibleFields.push({
       requestType: "Score Review",
       requestHeader: "Score Review Request",
-      visibleFields: [
-        { fieldApi: "Subject__c", disabled: false },
-        { fieldApi: "Note__c", disabled: false }
-      ]
+      visibleFields: ["isSubjectSelected", "isNoteSelected"]
     });
     lsVisibleFields.push({
       requestType: "Take Studying Break",
@@ -158,15 +150,58 @@
       requestType: "Defer Paying Tuition Fee",
       requestHeader: "Tuition Fee Payment Deferral",
       visibleFields: [
-        { fieldApi: "Academic_Term__c", disabled: false },
-        { fieldApi: "Note__c", disabled: false },
-        { fieldApi: "Submitting_Date__c", disabled: false },
-        { fieldApi: "Due_date__c", disabled: false }
+        "isAcademicTermSelected",
+        "isNoteSelected",
+        "isSubmittingDateSelected",
+        "isDueDateSelected"
       ]
     });
     cmp.set("v.lsVisibleFields", lsVisibleFields);
   },
-  validate: function () {
-    return true;
+  getStudentInformation: function (cmp) {
+    console.log("getStudentInformation...");
+    var action = cmp.get("c.getStudentInformation");
+    action.setCallback(this, function (response) {
+      var state = response.getState();
+      console.log("state: ", state);
+      console.log("response: ", response);
+      if (state === "SUCCESS") {
+        var returnValue = response.getReturnValue();
+        console.log("returnValue: ", returnValue);
+        if (returnValue) {
+          cmp.set("v.studentInfo", returnValue);
+          var requestDetailInfo = cmp.find("requestDetailInfo");
+          requestDetailInfo.updateStudentInformation(cmp.get("v.studentInfo"));
+        }
+      } else {
+        console.log("Failed.");
+        var errors = response.getError();
+        console.log("Error: ", errors);
+      }
+    });
+    $A.enqueueAction(action);
+  },
+  validate: function (cmp) {
+    console.log("validate...");
+    var isValid = true;
+    var requestHeader = cmp.get("v.requestHeader");
+    console.log("requestHeader: ", requestHeader);
+    switch (requestHeader) {
+      case "Student Card Re-issuance":
+        var reason = cmp.find("reason").get("v.value");
+        console.log("reason: ", reason);
+        if (!reason) {
+          isValid = false;
+          cmp.set(
+            "v.submitErrorMessage",
+            "Reason field is required. Please complete this field."
+          );
+        }
+        break;
+      default:
+        break;
+    }
+    console.log("isValid: ", isValid);
+    return isValid;
   }
 });

@@ -2,12 +2,13 @@
   @description       : 
   @author            : Tuan Tran
   @group             : 
-  @last modified on  : 11-12-2022
+  @last modified on  : 11-13-2022
   @last modified by  : Tuan Tran
 -->
 <aura:component
   implements="flexipage:availableForAllPageTypes,force:hasRecordId"
   access="global"
+  controller="Request_NewRequestController"
 >
   <aura:html tag="style" aura:id="newModalStyle">
     .slds-modal__container { min-width: 80%;outline:none;} .slds-modal {
@@ -22,23 +23,77 @@
     contents; }
   </aura:html>
   <aura:attribute name="isModalOpen" type="Boolean" default="true" />
+  <aura:attribute name="pageReference" type="Object" />
+  <aura:attribute name="studentInfo" type="Object" />
+
   <aura:attribute name="requestRecord" type="Object" />
   <aura:attribute name="requestFields" type="Object" />
   <aura:attribute name="requestError" type="String" />
+
   <aura:attribute name="requestType" type="String" />
   <aura:attribute name="requestHeader" type="String" />
+  <!--FIELD VALUES-->
+  <aura:attribute name="reason" type="String" />
+  <aura:attribute name="academicTerm" type="String" />
+  <aura:attribute name="faculty" type="String" />
+  <aura:attribute name="major" type="String" />
+  <aura:attribute name="subject" type="String" />
+  <aura:attribute name="note" type="String" />
+  <aura:attribute name="isFreeIssuanceAvailable" type="Boolean" />
+  <aura:attribute name="isSubmitted" type="Boolean" />
+  <aura:attribute name="numberOfFreeIssuance" type="String" />
+  <aura:attribute name="issuanceType" type="String" />
+  <aura:attribute name="quantity" type="String" />
+  <aura:attribute name="fee" type="String" />
+  <aura:attribute name="submittingDate" type="String" />
+  <aura:attribute name="dueDate" type="String" />
+
+  <!--CHECK SELECTED-->
+  <aura:attribute name="lsSelectedAttribute" type="List" default="[]" />
+  <aura:attribute name="isReasonSelected" type="Boolean" default="false" />
+  <aura:attribute
+    name="isAcademicTermSelected"
+    type="Boolean"
+    default="false"
+  />
+  <aura:attribute name="isFacultySelected" type="Boolean" default="false" />
+  <aura:attribute name="isMajorSelected" type="Boolean" default="false" />
+  <aura:attribute name="isSubjectSelected" type="Boolean" default="false" />
+  <aura:attribute name="isNoteSelected" type="Boolean" default="false" />
+  <aura:attribute
+    name="isIsFreeIssuanceAvailableSelected"
+    type="Boolean"
+    default="false"
+  />
+  <aura:attribute
+    name="isNumberOfFreeIssuanceSelected"
+    type="Boolean"
+    default="false"
+  />
+  <aura:attribute
+    name="isIssuanceTypeSelected"
+    type="Boolean"
+    default="false"
+  />
+  <aura:attribute name="isQuantitySelected" type="Boolean" default="false" />
+  <aura:attribute name="isFeeSelected" type="Boolean" default="false" />
+  <aura:attribute
+    name="isSubmittingDateSelected"
+    type="Boolean"
+    default="false"
+  />
+  <aura:attribute name="isDueDateSelected" type="Boolean" default="false" />
+
   <aura:attribute name="lsVisibleFields" type="List" default="[]" />
   <aura:attribute name="lsVisibleFieldsWHeader" type="List" default="[]" />
+  <!--error message-->
+  <aura:attribute name="submitErrorMessage" type="String" />
   <aura:handler name="init" value="{!this}" action="{!c.init}" />
-  <!-- <aura:handler
-    name="change"
-    value="{!v.requestHeader}"
-    action="{!c.onRequestHeaderChanged}"
-  /> -->
+  <lightning:navigation aura:id="navService" />
   <force:recordData
     aura:id="requestRecordCreator"
     recordId="{!v.recordId}"
-    fields="Request_Type__c, Request_Header__c, Student__c"
+    fields="Request_Type__c, Request_Header__c, Student__c, Is_Submitted__c"
     targetRecord="{!v.requestRecord}"
     targetFields="{!v.requestFields}"
     targetError="{!v.requestError}"
@@ -65,29 +120,119 @@
       class="slds-card_boundary"
     >
       <div class="slds-m-around_large">
-        <div class="slds-grid slds-wrap slds-form_stacked slds-form">
-          <lightning:outputField fieldName="Request_Type__c" />
-        </div>
-        <div class="slds-grid slds-wrap slds-form_stacked slds-form">
-          <lightning:outputField fieldName="Request_Header__c" />
-        </div>
+        <lightning:inputField
+          fieldName="Is_Submitted__c"
+          aura:id="submittedField"
+          disabled="true"
+        />
+        <lightning:outputField fieldName="Request_Type__c" />
+        <lightning:outputField fieldName="Request_Header__c" />
+        <lightning:outputField fieldName="Student_Name__c" />
         <aura:if isTrue="{!not(empty(v.requestHeader))}">
-          <aura:iteration items="{!v.lsVisibleFieldsWHeader}" var="item">
+          <aura:if isTrue="{!v.isIsFreeIssuanceAvailableSelected}">
             <lightning:inputField
-              fieldName="{!item.fieldApi}"
-              disabled="{!item.disabled}"
+              fieldName="Is_Free_Issuance_Available__c"
+              value="{!v.isFreeIssuanceAvailable}"
+              readonly="{! v.isSubmitted}"
             />
-          </aura:iteration>
+          </aura:if>
+          <aura:if isTrue="{!v.isNumberOfFreeIssuanceSelected}">
+            <lightning:inputField
+              fieldName="Number_of_Free_Issuance__c"
+              value="{!v.numberOfFreeIssuance}"
+              readonly="{! v.isSubmitted}"
+            />
+          </aura:if>
+          <aura:if isTrue="{!v.isIssuanceTypeSelected}">
+            <lightning:inputField
+              fieldName="Issuance_type__c"
+              readonly="{! v.isSubmitted}"
+              value="{!v.issuanceType}"
+            />
+          </aura:if>
+          <aura:if isTrue="{!v.isFeeSelected}">
+            <lightning:inputField
+              fieldName="Fee__c"
+              readonly="{! v.isSubmitted}"
+              value="{!v.fee}"
+            />
+          </aura:if>
+          <aura:if isTrue="{!v.isQuantitySelected}">
+            <lightning:inputField
+              fieldName="Quantity__c"
+              readonly="{! v.isSubmitted}"
+              value="{!v.quantity}"
+            />
+          </aura:if>
+          <aura:if isTrue="{!v.isReasonSelected}">
+            <lightning:inputField
+              fieldName="Reason__c"
+              aura:id="reason"
+              disabled="{! v.isSubmitted}"
+              required="true"
+              onchange="{!c.onReasonChanged}"
+            />
+          </aura:if>
+          <aura:if isTrue="{!v.isAcademicTermSelected}">
+            <lightning:inputField
+              fieldName="Academic_Term__c"
+              readonly="{! v.isSubmitted}"
+              value="{!v.academicTerm}"
+            />
+          </aura:if>
+          <aura:if isTrue="{!v.isFacultySelected}">
+            <lightning:inputField
+              fieldName="Faculty__c"
+              readonly="{! v.isSubmitted}"
+              value="{!v.faculty}"
+            />
+          </aura:if>
+          <aura:if isTrue="{!v.isMajorSelected}">
+            <lightning:inputField
+              fieldName="Major__c"
+              readonly="{! v.isSubmitted}"
+              value="{!v.major}"
+            />
+          </aura:if>
+          <aura:if isTrue="{!v.isSubjectSelected}">
+            <lightning:inputField
+              fieldName="Subject__c"
+              readonly="{! v.isSubmitted}"
+              value="{!v.subject}"
+            />
+          </aura:if>
+          <aura:if isTrue="{!v.isSubmittingDateSelected}">
+            <lightning:inputField
+              fieldName="Submitting_Date__c"
+              readonly="{! v.isSubmitted}"
+              value="{!v.submittingDate}"
+            />
+          </aura:if>
+          <aura:if isTrue="{!v.isDueDateSelected}">
+            <lightning:inputField
+              fieldName="Due_date__c"
+              readonly="{! v.isSubmitted}"
+              value="{!v.dueDate}"
+            />
+          </aura:if>
+          <aura:if isTrue="{!v.isNoteSelected}">
+            <lightning:inputField fieldName="Note__c" value="{!v.note}" />
+          </aura:if>
         </aura:if>
       </div>
     </lightning:card>
-    <div class="slds-docked-form-footer">
+    <div class="slds-m-top_small">
+      <c:Request_RequestDetailInfoCmp aura:id="requestDetailInfo" />
+    </div>
+    <div class="slds-docked-form-footer slds-m-top-small">
       <lightning:button variant="destructive" onclick="{!c.onDelete}">
         Delete
       </lightning:button>
-      <lightning:button variant="brand" onclick="{!c.onSubmit}">
-        Submit
-      </lightning:button>
+      <aura:if isTrue="{!not(v.isSubmitted)}">
+        <lightning:button variant="brand" onclick="{!c.onSubmit}">
+          Submit
+        </lightning:button>
+      </aura:if>
     </div>
   </lightning:recordEditForm>
 </aura:component>

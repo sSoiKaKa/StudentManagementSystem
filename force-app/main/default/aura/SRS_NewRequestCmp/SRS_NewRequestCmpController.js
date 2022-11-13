@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-console */
 ({
   init: function (cmp, event, helper) {
@@ -32,39 +33,37 @@
   onRecordLoad: function () {
     // cmp.set("v.newRequestFields.Student__c", "a005g000036Gw5GAAS");
   },
-  onCreateSuccess: function () {},
+  onCreateSuccess: function (cmp, event) {
+    // record is saved successfully
+    var resultsToast = $A.get("e.force:showToast");
+    resultsToast.setParams({
+      title: "Saved",
+      message: "The record was created."
+    });
+    resultsToast.fire();
+    var params = event.getParams();
+    var requestId = params.response.id;
+    console.log(params.response.id);
+    cmp.find("navService").navigate(
+      {
+        type: "standard__recordPage",
+        attributes: {
+          recordId: requestId,
+          actionName: "view" //clone, edit, view
+        }
+      },
+      true
+    );
+  },
   onCreateError: function () {},
   handleExit: function (cmp) {
     cmp.find("navService").navigate(cmp.get("v.pageReference"), true);
   },
   onContinue: function (cmp) {
     cmp.set("v.newRequestFields.Id", cmp.get("v.recordId"));
-    cmp.find("requestRecordCreator").saveRecord(function (saveResult) {
-      if (saveResult.state === "SUCCESS" || saveResult.state === "DRAFT") {
-        // record is saved successfully
-        var resultsToast = $A.get("e.force:showToast");
-        resultsToast.setParams({
-          title: "Saved",
-          message: "The record was created."
-        });
-        resultsToast.fire();
-      } else if (saveResult.state === "INCOMPLETE") {
-        // handle the incomplete state
-        console.log("User is offline, device doesn't support drafts.");
-      } else if (saveResult.state === "ERROR") {
-        // handle the error state
-        console.log(
-          "Problem saving contact, error: " + JSON.stringify(saveResult.error)
-        );
-      } else {
-        console.log(
-          "Unknown problem, state: " +
-            saveResult.state +
-            ", error: " +
-            JSON.stringify(saveResult.error)
-        );
-      }
-    });
+    var studentInfo = cmp.get("v.studentInfo");
+    cmp.set("v.newRequestFields.Student__c", studentInfo.Id);
+    cmp.find("recordEditForm").submit();
   },
   onRequestHeaderChanged: function (cmp, event, helper) {
     var requestHeader = cmp.get("v.requestHeader");

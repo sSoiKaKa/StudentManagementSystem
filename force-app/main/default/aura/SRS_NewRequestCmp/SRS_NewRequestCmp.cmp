@@ -89,7 +89,7 @@
                 <div class="slds-grid slds-wrap slds-form_stacked slds-form">
                   <lightning:inputField
                     fieldName="Student__c"
-                    value="{!v.studentInfo.Name}"
+                    value="{!v.studentInfo.Id}"
                     disabled="true"
                   />
                   <lightning:input
