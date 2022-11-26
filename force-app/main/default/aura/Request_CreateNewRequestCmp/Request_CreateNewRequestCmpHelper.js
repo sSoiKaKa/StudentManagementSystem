@@ -203,5 +203,73 @@
     }
     console.log("isValid: ", isValid);
     return isValid;
+  },
+  processDataForEachRequestHeader: function (cmp) {
+    console.log("processDataForEachRequestHeader...");
+    var requestHeader = cmp.get("v.requestHeader");
+    switch (requestHeader) {
+      case "Application for Graduation Recognition":
+        this.generateTerm(cmp);
+        break;
+      case "Application for Study Promotion Scholarship":
+        this.generateTerm(cmp);
+        break;
+      case "Second Program Registration":
+        this.generateTerm(cmp);
+        break;
+      case "Semester Transcript Issuance":
+        this.generateTerm(cmp);
+        break;
+      default:
+        break;
+    }
+  },
+  generateTerm: function (cmp) {
+    var lsTerms = [];
+    var currentTime = new Date();
+    var currentYear = currentTime.getFullYear();
+    var currentMonth = currentTime.getMonth();
+    var numberOfTerms = 8;
+    var numOfYear = 2;
+    var termOrder = 1;
+    if (currentMonth < 8) {
+      numOfYear = 3;
+    }
+    for (var i = numberOfTerms; i > 0; i--) {
+      var yearTerm1 = currentYear - numOfYear;
+      var yearTerm2 = yearTerm1 + 1;
+      var termString = "";
+      if (termOrder === 3) {
+        termString = "Summer Term of Year " + yearTerm1 + "-" + yearTerm2;
+      } else {
+        termString =
+          "Term No." + termOrder + " of Year " + yearTerm1 + "-" + yearTerm2;
+      }
+      lsTerms.push(termString);
+      if (termOrder === 3) {
+        termOrder = 1;
+        numOfYear--;
+      } else {
+        termOrder++;
+      }
+    }
+    console.log("lsTerms: ", lsTerms);
+    cmp.set("v.lsTerms", lsTerms);
+  },
+  showSuccessMessage: function (msg) {
+    var toastEvent = $A.get("e.force:showToast");
+    toastEvent.setParams({
+      type: "success",
+      message: msg
+    });
+    toastEvent.fire();
+  },
+  showErrorMessage: function (errorMessage) {
+    var toastEvent = $A.get("e.force:showToast");
+    toastEvent.setParams({
+      type: "error",
+      message: errorMessage
+    });
+    toastEvent.fire();
   }
 });

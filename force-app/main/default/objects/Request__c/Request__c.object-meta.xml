@@ -169,6 +169,7 @@
         <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Requests</pluralLabel>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
     <searchLayouts></searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
     <visibility>Public</visibility>
