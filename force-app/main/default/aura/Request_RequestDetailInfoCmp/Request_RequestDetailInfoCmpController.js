@@ -20,7 +20,7 @@
       cmp.set("v.studentInfo", params.studentInfoFromParent);
     }
   },
-  updateRequestRecord: function (cmp, event) {
+  updateRequestRecord: function (cmp, event, helper) {
     console.log("updateRequestRecord...");
     var params = event.getParam("arguments");
     console.log("params: ", params);
@@ -28,14 +28,7 @@
       cmp.set("v.requestHeader", params.requestHeader);
       cmp.set("v.requestType", params.requestType);
       cmp.set("v.requestFields", params.requestFields);
-
-      switch (params.requestHeader) {
-        case "Student Card Re-issuance":
-          cmp.set("v.cardTitle", "Your Student Card Information");
-          break;
-        default:
-          break;
-      }
+      helper.generateDataForEachRequest(cmp, event, helper);
     }
   }
 });

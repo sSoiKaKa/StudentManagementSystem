@@ -2,7 +2,7 @@
  * @description       :
  * @author            : Tuan Tran
  * @group             :
- * @last modified on  : 11-13-2022
+ * @last modified on  : 11-26-2022
  * @last modified by  : Tuan Tran
  **/
 public without sharing class Request_NewRequestController {
@@ -19,6 +19,8 @@ public without sharing class Request_NewRequestController {
           Date_Of_Birth__c,
           Acitvity_Class__r.Class_Name__c,
           Faculty__r.Faculty_Name__c,
+          Free_Request_Remainder__c,
+          Major__c,
           (
             SELECT Id, Name, Admission_Year__c, Id_Input__c, Is_Valid__c
             FROM Student_Cards__r

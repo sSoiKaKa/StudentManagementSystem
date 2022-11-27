@@ -15,10 +15,16 @@
     };
     cmp.set("v.pageReference", pageReference);
   },
-  onRecordLoad: function (cmp, event) {
+  onRecordLoad: function (cmp, event, helper) {
     console.log("onRecordLoad...");
     var fields = event.getParam("recordUi").record.fields;
-    cmp.set("v.fee", 10000);
+    var studentInfo = cmp.get("v.studentInfo");
+    var isQuantitySelected = cmp.get("v.isQuantitySelected");
+    cmp.set("v.numberOfFreeIssuance", studentInfo.Free_Request_Remainder__c);
+    if (isQuantitySelected) {
+      cmp.set("v.unitCost", fields.Unit_Cost__c.value);
+      helper.initFeeValue(cmp);
+    }
   },
   onCreateSuccess: function (cmp, event, helper) {
     var msg = "Submit Request successfully.";
@@ -142,5 +148,31 @@
   },
   onSelectTermChange: function (cmp, event) {
     cmp.set("v.academicTerm", cmp.find("selectTerm").get("v.value"));
+  },
+  onIssuanceTypeChanged: function (cmp) {
+    var issuanceType = cmp.get("v.issuanceType");
+    if (!issuanceType || issuanceType === "Free") {
+      cmp.set("v.fee", 0);
+    } else {
+      var unitCost = cmp.get("v.unitCost");
+      var quantity = cmp.get("v.quantity");
+      if (unitCost && quantity) {
+        var fee = quantity * unitCost;
+        console.log("fee: ", fee);
+        cmp.set("v.fee", fee);
+      }
+    }
+  },
+  onQuantityChanged: function (cmp) {
+    var issuanceType = cmp.get("v.issuanceType");
+    if (issuanceType === "Paid") {
+      var unitCost = cmp.get("v.unitCost");
+      var quantity = cmp.get("v.quantity");
+      if (unitCost && quantity) {
+        var fee = quantity * unitCost;
+        console.log("fee: ", fee);
+        cmp.set("v.fee", fee);
+      }
+    }
   }
 });

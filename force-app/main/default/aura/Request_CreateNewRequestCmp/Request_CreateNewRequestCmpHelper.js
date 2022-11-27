@@ -46,6 +46,7 @@
         "isAcademicTermSelected",
         "isQuantitySelected",
         "isFeeSelected",
+        "isUnitCostSelected",
         "isNoteSelected"
       ]
     });
@@ -57,6 +58,7 @@
         "isAcademicTermSelected",
         "isQuantitySelected",
         "isFeeSelected",
+        "isUnitCostSelected",
         "isNoteSelected"
       ]
     });
@@ -67,6 +69,7 @@
         "isIsFreeIssuanceAvailableSelected",
         "isQuantitySelected",
         "isFeeSelected",
+        "isUnitCostSelected",
         "isNoteSelected"
       ]
     });
@@ -77,6 +80,7 @@
         "isIsFreeIssuanceAvailableSelected",
         "isQuantitySelected",
         "isFeeSelected",
+        "isUnitCostSelected",
         "isNoteSelected"
       ]
     });
@@ -89,6 +93,7 @@
         "isIssuanceTypeSelected",
         "isQuantitySelected",
         "isFeeSelected",
+        "isUnitCostSelected",
         "isNoteSelected"
       ]
     });
@@ -101,6 +106,7 @@
         "isIssuanceTypeSelected",
         "isQuantitySelected",
         "isFeeSelected",
+        "isUnitCostSelected",
         "isNoteSelected"
       ]
     });
@@ -113,6 +119,7 @@
         "isIssuanceTypeSelected",
         "isQuantitySelected",
         "isFeeSelected",
+        "isUnitCostSelected",
         "isNoteSelected"
       ]
     });
@@ -157,6 +164,10 @@
       ]
     });
     cmp.set("v.lsVisibleFields", lsVisibleFields);
+  },
+  initFeeValue: function (cmp) {
+    cmp.set("v.quantity", 1);
+    cmp.set("v.fee", cmp.get("v.unitCost"));
   },
   getStudentInformation: function (cmp) {
     console.log("getStudentInformation...");

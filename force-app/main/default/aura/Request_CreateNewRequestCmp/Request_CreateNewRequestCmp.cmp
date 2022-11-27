@@ -31,8 +31,9 @@
   <aura:attribute name="isSubmitted" type="Boolean" />
   <aura:attribute name="numberOfFreeIssuance" type="String" />
   <aura:attribute name="issuanceType" type="String" />
-  <aura:attribute name="quantity" type="String" />
-  <aura:attribute name="fee" type="String" />
+  <aura:attribute name="quantity" type="Integer" />
+  <aura:attribute name="fee" type="Currency" />
+  <aura:attribute name="unitCost" type="Currency" />
   <!-- <aura:attribute name="submittingDate" type="Date" /> -->
   <aura:attribute name="dueDate" type="String" />
 
@@ -71,7 +72,10 @@
     default="false"
   />
   <aura:attribute name="isDueDateSelected" type="Boolean" default="false" />
+  <aura:attribute name="isUnitCostSelected" type="Boolean" default="false" />
 
+  <!--required field-->
+  <aura:attribute name="lsRequiredField" type="Boolean" default="false" />
   <!--Sub-Data-->
   <aura:attribute name="lsTerms" type="String[]" default="[]" />
 
@@ -172,11 +176,22 @@
               readonly="{! v.isSubmitted}"
             />
           </aura:if>
+          <aura:if isTrue="{!v.isUnitCostSelected}">
+            <lightning:inputField
+              fieldName="Unit_Cost__c"
+              value="{!v.unitCost}"
+              readonly="{! v.isSubmitted}"
+              disabled="true"
+              variant="standard"
+            />
+          </aura:if>
           <aura:if isTrue="{!v.isNumberOfFreeIssuanceSelected}">
             <lightning:inputField
               fieldName="Number_of_Free_Issuance__c"
               value="{!v.numberOfFreeIssuance}"
               readonly="{! v.isSubmitted}"
+              disabled="true"
+              variant="standard"
             />
           </aura:if>
           <aura:if isTrue="{!v.isIssuanceTypeSelected}">
@@ -184,6 +199,9 @@
               fieldName="Issuance_type__c"
               readonly="{! v.isSubmitted}"
               value="{!v.issuanceType}"
+              variant="standard"
+              onchange="{!c.onIssuanceTypeChanged}"
+              required="true"
             />
           </aura:if>
           <aura:if isTrue="{!v.isQuantitySelected}">
@@ -191,6 +209,9 @@
               fieldName="Quantity__c"
               readonly="{! v.isSubmitted}"
               value="{!v.quantity}"
+              variant="standard"
+              onchange="{!c.onQuantityChanged}"
+              required="true"
             />
           </aura:if>
           <aura:if isTrue="{!v.isFeeSelected}">
@@ -199,6 +220,7 @@
               readonly="{! v.isSubmitted}"
               disabled="true"
               value="{!v.fee}"
+              variant="standard"
             />
           </aura:if>
           <aura:if isTrue="{!v.isReasonSelected}">
@@ -208,6 +230,7 @@
               disabled="{! v.isSubmitted}"
               required="true"
               onchange="{!c.onReasonChanged}"
+              variant="standard"
             />
           </aura:if>
           <aura:if isTrue="{!v.isFacultySelected}">
@@ -215,6 +238,7 @@
               fieldName="Faculty__c"
               readonly="{! v.isSubmitted}"
               value="{!v.faculty}"
+              variant="standard"
             />
           </aura:if>
           <aura:if isTrue="{!v.isMajorSelected}">
@@ -222,6 +246,7 @@
               fieldName="Major__c"
               readonly="{! v.isSubmitted}"
               value="{!v.major}"
+              variant="standard"
             />
           </aura:if>
           <aura:if isTrue="{!v.isSubjectSelected}">
@@ -229,6 +254,7 @@
               fieldName="Subject__c"
               readonly="{! v.isSubmitted}"
               value="{!v.subject}"
+              variant="standard"
             />
           </aura:if>
           <aura:if isTrue="{!v.isSubmittingDateSelected}">
@@ -236,6 +262,7 @@
               fieldName="Submitting_Date__c"
               readonly="{! v.isSubmitted}"
               value="{!v.submittingDate}"
+              variant="standard"
             />
           </aura:if>
           <aura:if isTrue="{!v.isDueDateSelected}">
@@ -243,10 +270,15 @@
               fieldName="Due_date__c"
               readonly="{! v.isSubmitted}"
               value="{!v.dueDate}"
+              variant="standard"
             />
           </aura:if>
           <aura:if isTrue="{!v.isNoteSelected}">
-            <lightning:inputField fieldName="Note__c" value="{!v.note}" />
+            <lightning:inputField
+              fieldName="Note__c"
+              variant="standard"
+              value="{!v.note}"
+            />
           </aura:if>
         </aura:if>
       </div>
