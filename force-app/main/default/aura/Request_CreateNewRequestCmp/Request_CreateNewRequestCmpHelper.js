@@ -178,12 +178,13 @@
       console.log("response: ", response);
       if (state === "SUCCESS") {
         var returnValue = response.getReturnValue();
-        console.log("returnValue: ", returnValue);
+        console.log("studentInfo: ", returnValue);
         if (returnValue) {
           cmp.set("v.studentInfo", returnValue);
           var requestDetailInfo = cmp.find("requestDetailInfo");
           requestDetailInfo.updateStudentInformation(cmp.get("v.studentInfo"));
         }
+        this.generateTerm(cmp);
       } else {
         console.log("Failed.");
         var errors = response.getError();
@@ -220,22 +221,23 @@
     var requestHeader = cmp.get("v.requestHeader");
     switch (requestHeader) {
       case "Application for Graduation Recognition":
-        this.generateTerm(cmp);
         break;
       case "Application for Study Promotion Scholarship":
-        this.generateTerm(cmp);
         break;
       case "Second Program Registration":
-        this.generateTerm(cmp);
         break;
       case "Semester Transcript Issuance":
-        this.generateTerm(cmp);
         break;
       default:
         break;
     }
   },
   generateTerm: function (cmp) {
+    console.log("generateTerm...");
+    var studentInfo = cmp.get("v.studentInfo");
+    console.log("studentInfo.Admission_Day__c: ", studentInfo.Admission_Day__c);
+    var admissionYear = studentInfo.Admission_Day__c.substring(0, 4);
+    console.log("admissionYear: ", admissionYear);
     var lsTerms = [];
     var currentTime = new Date();
     var currentYear = currentTime.getFullYear();
@@ -250,13 +252,18 @@
       var yearTerm1 = currentYear - numOfYear;
       var yearTerm2 = yearTerm1 + 1;
       var termString = "";
+      var value = 0;
       if (termOrder === 3) {
         termString = "Summer Term of Year " + yearTerm1 + "-" + yearTerm2;
+        value = (Number(yearTerm1) - Number(admissionYear)) * 2 + 2.5;
+        console.log("value: ", value);
       } else {
         termString =
           "Term No." + termOrder + " of Year " + yearTerm1 + "-" + yearTerm2;
+        value = (Number(yearTerm1) - Number(admissionYear)) * 2 + termOrder;
+        console.log("value: ", value);
       }
-      lsTerms.push(termString);
+      lsTerms.push({ name: termString, value: value });
       if (termOrder === 3) {
         termOrder = 1;
         numOfYear--;

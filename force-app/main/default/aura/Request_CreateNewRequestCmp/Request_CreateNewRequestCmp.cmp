@@ -2,7 +2,7 @@
   @description       : 
   @author            : Tuan Tran
   @group             : 
-  @last modified on  : 11-26-2022
+  @last modified on  : 11-27-2022
   @last modified by  : Tuan Tran
 -->
 <aura:component
@@ -163,8 +163,9 @@
               onchange="{!c.onSelectTermChange}"
               value="{!v.academicTerm}"
             >
+              <option value="default">select one...</option>
               <aura:iteration items="{!v.lsTerms}" var="term">
-                <option text="{!term}"></option>
+                <option value="{!term.value}" text="{!term.name}"></option>
               </aura:iteration>
             </lightning:select>
           </aura:if>

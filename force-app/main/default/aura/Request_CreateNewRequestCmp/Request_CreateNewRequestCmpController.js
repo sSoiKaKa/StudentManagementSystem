@@ -147,7 +147,19 @@
     }
   },
   onSelectTermChange: function (cmp, event) {
-    cmp.set("v.academicTerm", cmp.find("selectTerm").get("v.value"));
+    console.log("onSelectTermChange...");
+    var termValue = cmp.find("selectTerm").get("v.value");
+    console.log("termValue: ", termValue);
+    var requestHeader = cmp.get("v.requestHeader");
+    if (termValue === "default") {
+      cmp.set("v.academicTerm", null);
+    } else {
+      cmp.set("v.academicTerm", cmp.find("selectTerm").get("v.value"));
+      if (requestHeader === "Semester Transcript Issuance") {
+        var requestDetailInfo = cmp.find("requestDetailInfo");
+        requestDetailInfo.retrieveSemesterTranscriptData(Number(termValue));
+      }
+    }
   },
   onIssuanceTypeChanged: function (cmp) {
     var issuanceType = cmp.get("v.issuanceType");
