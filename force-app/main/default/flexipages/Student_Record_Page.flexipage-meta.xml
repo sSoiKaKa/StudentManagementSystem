@@ -48,202 +48,6 @@
         <itemInstances>
             <componentInstance>
                 <componentInstanceProperties>
-                    <name>tabs</name>
-                    <valueList>
-                        <valueListItems>
-                            <value>Request__c</value>
-                        </valueListItems>
-                    </valueList>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>title</name>
-                    <value>Request</value>
-                </componentInstanceProperties>
-                <componentName>runtime_mobilesapp:launchPadTileList</componentName>
-                <identifier>runtime_mobilesapp_launchPadTileList</identifier>
-            </componentInstance>
-        </itemInstances>
-        <name>Facet-48b95686-7627-4770-ad8d-d31a65c05094</name>
-        <type>Facet</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
-        <itemInstances>
-            <componentInstance>
-                <componentInstanceProperties>
-                    <name>tabs</name>
-                    <valueList>
-                        <valueListItems>
-                            <value>Request__c</value>
-                        </valueListItems>
-                    </valueList>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>title</name>
-                    <value>Request</value>
-                </componentInstanceProperties>
-                <componentName>runtime_mobilesapp:launchPadTileList</componentName>
-                <identifier>runtime_mobilesapp_launchPadTileList2</identifier>
-            </componentInstance>
-        </itemInstances>
-        <name>Facet-ffa76258-c1b7-4ad3-9f86-06948bde7689</name>
-        <type>Facet</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
-        <itemInstances>
-            <componentInstance>
-                <componentInstanceProperties>
-                    <name>active</name>
-                    <value>true</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>body</name>
-                    <value>Facet-48b95686-7627-4770-ad8d-d31a65c05094</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>title</name>
-                    <value>Reissuance</value>
-                </componentInstanceProperties>
-                <componentName>flexipage:tab</componentName>
-                <identifier>flexipage_tab</identifier>
-            </componentInstance>
-        </itemInstances>
-        <itemInstances>
-            <componentInstance>
-                <componentInstanceProperties>
-                    <name>body</name>
-                    <value>Facet-ffa76258-c1b7-4ad3-9f86-06948bde7689</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>title</name>
-                    <value>Approval</value>
-                </componentInstanceProperties>
-                <componentName>flexipage:tab</componentName>
-                <identifier>flexipage_tab2</identifier>
-            </componentInstance>
-        </itemInstances>
-        <name>Facet-bb9b909e-0a6d-4267-96ad-9da0080c0e13</name>
-        <type>Facet</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
-        <itemInstances>
-            <componentInstance>
-                <componentInstanceProperties>
-                    <name>tabs</name>
-                    <value>Facet-bb9b909e-0a6d-4267-96ad-9da0080c0e13</value>
-                </componentInstanceProperties>
-                <componentName>flexipage:tabset</componentName>
-                <identifier>flexipage_tabset</identifier>
-            </componentInstance>
-        </itemInstances>
-        <name>Facet-c6e284eb-00d1-4be9-a53d-3e1d69db709a</name>
-        <type>Facet</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
-        <itemInstances>
-            <componentInstance>
-                <componentInstanceProperties>
-                    <name>body</name>
-                    <value>Facet-c6e284eb-00d1-4be9-a53d-3e1d69db709a</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>label</name>
-                    <value>Request</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>name</name>
-                    <value>accordionSection1</value>
-                </componentInstanceProperties>
-                <componentName>flexipage:accordionSection</componentName>
-                <identifier>flexipage_accordionSection</identifier>
-            </componentInstance>
-        </itemInstances>
-        <name>Facet-af44b46f-45d5-4ea5-9b97-82175c50ab0a</name>
-        <type>Facet</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
-        <itemInstances>
-            <componentInstance>
-                <componentInstanceProperties>
-                    <name>actionNames</name>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>maxRecordsToDisplay</name>
-                    <value>5</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>parentFieldApiName</name>
-                    <value>Student__c.Id</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>relatedListApiName</name>
-                    <value>Notifications__r</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>relatedListDisplayType</name>
-                    <value>ADVGRID</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>relatedListFieldAliases</name>
-                    <valueList>
-                        <valueListItems>
-                            <value>Title__c</value>
-                        </valueListItems>
-                        <valueListItems>
-                            <value>Body__c</value>
-                        </valueListItems>
-                    </valueList>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>relatedListLabel</name>
-                    <value>Notifications</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>showActionBar</name>
-                    <value>true</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>sortFieldAlias</name>
-                    <value>__DEFAULT__</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>sortFieldOrder</name>
-                    <value>Default</value>
-                </componentInstanceProperties>
-                <componentName>lst:dynamicRelatedList</componentName>
-                <identifier>lst_dynamicRelatedList</identifier>
-            </componentInstance>
-        </itemInstances>
-        <itemInstances>
-            <componentInstance>
-                <componentInstanceProperties>
-                    <name>accordionSections</name>
-                    <value>Facet-af44b46f-45d5-4ea5-9b97-82175c50ab0a</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>defaultSectionName</name>
-                    <value>accordionSection1</value>
-                </componentInstanceProperties>
-                <componentName>flexipage:accordion</componentName>
-                <identifier>flexipage_accordion</identifier>
-            </componentInstance>
-        </itemInstances>
-        <name>main</name>
-        <type>Region</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
-        <itemInstances>
-            <componentInstance>
-                <componentName>force:detailPanel</componentName>
-                <identifier>force_detailPanel</identifier>
-            </componentInstance>
-        </itemInstances>
-        <name>Facet-0a291346-61f4-4dff-b191-cf017ccf1a78</name>
-        <type>Facet</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
-        <itemInstances>
-            <componentInstance>
-                <componentInstanceProperties>
                     <name>relatedListComponentOverride</name>
                     <value>NONE</value>
                 </componentInstanceProperties>
@@ -256,10 +60,138 @@
                     <value>true</value>
                 </componentInstanceProperties>
                 <componentName>force:relatedListContainer</componentName>
-                <identifier>force_relatedListContainer</identifier>
+                <identifier>force_relatedListContainer2</identifier>
             </componentInstance>
         </itemInstances>
-        <name>Facet-82edb833-1d1e-478c-9fc6-7592b51a2a8a</name>
+        <name>main</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>readonly</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Name</fieldItem>
+                <identifier>RecordNameField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>required</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Student_Name__c</fieldItem>
+                <identifier>RecordStudent_Name_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>readonly</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Education_Program__c</fieldItem>
+                <identifier>RecordEducation_Program_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>readonly</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Admission_Day__c</fieldItem>
+                <identifier>RecordAdmission_Day_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>readonly</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.User__c</fieldItem>
+                <identifier>RecordUser_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>readonly</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Date_Of_Birth__c</fieldItem>
+                <identifier>RecordDate_Of_Birth_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>readonly</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Faculty__c</fieldItem>
+                <identifier>RecordFaculty_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>readonly</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Major__c</fieldItem>
+                <identifier>RecordMajor_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>required</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Class__c</fieldItem>
+                <identifier>RecordClass_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>readonly</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Acitvity_Class__c</fieldItem>
+                <identifier>RecordAcitvity_Class_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>readonly</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.GPA__c</fieldItem>
+                <identifier>RecordGPA_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Free_Request_Remainder__c</fieldItem>
+                <identifier>RecordFree_Request_Remainder_cField2</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <name>Facet-f6d55adb-a763-4af2-a2e3-16d0e044456b</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <name>Facet-b2533bed-7373-4d04-af9b-fbb360ba07d4</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
@@ -267,46 +199,38 @@
             <componentInstance>
                 <componentInstanceProperties>
                     <name>body</name>
-                    <value>Facet-0a291346-61f4-4dff-b191-cf017ccf1a78</value>
+                    <value>Facet-f6d55adb-a763-4af2-a2e3-16d0e044456b</value>
                 </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>title</name>
-                    <value>Standard.Tab.detail</value>
-                </componentInstanceProperties>
-                <componentName>flexipage:tab</componentName>
-                <identifier>flexipage_tab4</identifier>
+                <componentName>flexipage:column</componentName>
+                <identifier>flexipage_column</identifier>
             </componentInstance>
         </itemInstances>
         <itemInstances>
             <componentInstance>
                 <componentInstanceProperties>
-                    <name>active</name>
-                    <value>true</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
                     <name>body</name>
-                    <value>Facet-82edb833-1d1e-478c-9fc6-7592b51a2a8a</value>
+                    <value>Facet-b2533bed-7373-4d04-af9b-fbb360ba07d4</value>
                 </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>title</name>
-                    <value>Standard.Tab.relatedLists</value>
-                </componentInstanceProperties>
-                <componentName>flexipage:tab</componentName>
-                <identifier>flexipage_tab3</identifier>
+                <componentName>flexipage:column</componentName>
+                <identifier>flexipage_column2</identifier>
             </componentInstance>
         </itemInstances>
-        <name>Facet-cc2ee36b-21e4-4164-a688-37603c51e959</name>
+        <name>Facet-13ffc6ee-d79a-4c46-98e4-61d0e9d9f9e2</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
         <itemInstances>
             <componentInstance>
                 <componentInstanceProperties>
-                    <name>tabs</name>
-                    <value>Facet-cc2ee36b-21e4-4164-a688-37603c51e959</value>
+                    <name>columns</name>
+                    <value>Facet-13ffc6ee-d79a-4c46-98e4-61d0e9d9f9e2</value>
                 </componentInstanceProperties>
-                <componentName>flexipage:tabset</componentName>
-                <identifier>flexipage_tabset2</identifier>
+                <componentInstanceProperties>
+                    <name>label</name>
+                    <value>Information</value>
+                </componentInstanceProperties>
+                <componentName>flexipage:fieldSection</componentName>
+                <identifier>flexipage_fieldSection</identifier>
             </componentInstance>
         </itemInstances>
         <name>sidebar</name>

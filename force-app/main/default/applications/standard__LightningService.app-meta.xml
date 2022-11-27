@@ -32,6 +32,7 @@
     <tabs>Request__c</tabs>
     <tabs>Acitvity_Class__c</tabs>
     <tabs>Student_Card__c</tabs>
+    <tabs>Major_Subject__c</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>LightningService_UtilityBar</utilityBar>
     <workspaceConfig>
@@ -46,6 +47,9 @@
         </mappings>
         <mappings>
             <tab>Faculty__c</tab>
+        </mappings>
+        <mappings>
+            <tab>Major_Subject__c</tab>
         </mappings>
         <mappings>
             <tab>Major__c</tab>
