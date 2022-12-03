@@ -75,6 +75,36 @@ public without sharing class Request_NewRequestController {
       return null;
     }
   }
+  @AuraEnabled
+  public static string getYearTranscript(
+    String studentId,
+    String admissionYear
+  ) {
+    try {
+      List<String> lsTerms = getLsTermsForCurrentTime(admissionYear);
+      return null;
+    } catch (Exception e) {
+      System.debug('Fail to get Year Transcript. Error: ' + e.getMessage());
+      return null;
+    }
+  }
+  public static List<String> getLsTermsForCurrentTime(String admissionYear) {
+    Integer currentYear = System.today().year();
+    Integer currentMonth = System.today().month();
+    Integer yearNumber;
+    List<String> lsTerm = new List<String>();
+    if (currentMonth <= 7 && currentMonth > 5) {
+      yearNumber = currentYear - Integer.valueOf(admissionYear);
+      lsTerm.add(String.valueOf(yearNumber * 2 - 1));
+      lsTerm.add(String.valueOf(yearNumber * 2));
+      lsTerm.add(String.valueOf(yearNumber * 2 + 0.5));
+    } else if (currentMonth < 5) {
+      yearNumber = currentYear - Integer.valueOf(admissionYear);
+      lsTerm.add(String.valueOf(yearNumber * 2 - 1));
+      lsTerm.add(String.valueOf(yearNumber * 2));
+    }
+    return lsTerm;
+  }
   public class SubjectRegistration {
     public String id;
     public String studentId;
