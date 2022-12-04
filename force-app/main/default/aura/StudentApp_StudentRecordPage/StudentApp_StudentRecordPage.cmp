@@ -2,7 +2,7 @@
   @description       : 
   @author            : Tuan Tran
   @group             : 
-  @last modified on  : 12-03-2022
+  @last modified on  : 12-04-2022
   @last modified by  : Tuan Tran
 -->
 <aura:component
@@ -12,7 +12,11 @@
 >
   <aura:attribute name="studentInfo" type="Object" />
   <aura:attribute name="requests" type="List" />
+  <aura:attribute name="isModalOpen" type="Boolean" default="false" />
   <aura:handler name="init" value="{!this}" action="{!c.init}" />
+  <aura:if isTrue="{!v.isModalOpen}">
+    <c:SRS_NewRequestCmp isStudentAppInvoked="true"> </c:SRS_NewRequestCmp>
+  </aura:if>
   <lightning:card
     title="Your Notifications"
     iconName="standard:contact"
@@ -25,6 +29,15 @@
     variant="base"
     class="slds-card_boundary"
   >
+    <aura:set attribute="actions">
+      <lightning:button
+        class="slds-theme_neutral"
+        variant="neutral"
+        label="New"
+        onclick="{!c.openNewModal}"
+      >
+      </lightning:button>
+    </aura:set>
     <div class="slds-m-around_small">
       <table
         class="slds-table slds-no-row-hover slds-table_bordered slds-table_col-bordered"
@@ -59,7 +72,9 @@
               <td>
                 <div style="font-size: 0.8125rem">
                   <p>
-                    <lightning:formattedText value="{!item.Name}" />
+                    <a href="{! ('/' + item.Id) }" target="_blank"
+                      >{!item.Name}</a
+                    >
                   </p>
                 </div>
               </td>

@@ -2,7 +2,7 @@
   @description       : 
   @author            : Tuan Tran
   @group             : 
-  @last modified on  : 11-12-2022
+  @last modified on  : 12-04-2022
   @last modified by  : Tuan Tran
 -->
 <aura:component
@@ -22,7 +22,9 @@
     .quick-actions-panel.slds-modal__content.slds-p-aroundmedium { display:
     contents; }
   </aura:html> -->
+
   <aura:attribute name="isModalOpen" type="Boolean" default="true" />
+  <aura:attribute name="isStudentAppInvoked" type="Boolean" default="false" />
 
   <aura:attribute name="pageReference" type="Object" />
   <aura:attribute name="studentInfo" type="Object" />

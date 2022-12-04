@@ -2,6 +2,7 @@
 /* eslint-disable no-unused-vars */
 ({
   init: function (cmp, event, helper) {
+    console.log("init: ");
     var action = cmp.get("c.getStudentInfoForCurrentUser");
     action.setCallback(this, function (response) {
       var state = response.getState();
@@ -21,5 +22,8 @@
       }
     });
     $A.enqueueAction(action);
+  },
+  openNewModal: function (cmp, event, helper) {
+    cmp.set("v.isModalOpen", true);
   }
 });

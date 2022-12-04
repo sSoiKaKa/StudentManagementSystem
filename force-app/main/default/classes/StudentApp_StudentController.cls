@@ -2,7 +2,7 @@
  * @description       :
  * @author            : Tuan Tran
  * @group             :
- * @last modified on  : 12-03-2022
+ * @last modified on  : 12-04-2022
  * @last modified by  : Tuan Tran
  **/
 public with sharing class StudentApp_StudentController {
@@ -88,14 +88,44 @@ public with sharing class StudentApp_StudentController {
       String userId = UserInfo.getUserId();
       System.debug('userId: ' + userId);
       Student__c student = [
-        SELECT Id, Name, Faculty__c, Acitvity_Class__c
+        SELECT Id, Name, Faculty__c, Acitvity_Class__c, Current_Semester__c
         FROM Student__c
         WHERE User__c = :userId
       ];
+      List<Subject_Registration__c> subjectRegistraionQueries = [
+        SELECT
+          Id,
+          Name,
+          Subject__c,
+          Subject_Class__c,
+          Semester__c,
+          Subject_Class__c
+        FROM Subject_Registration__c
+        WHERE
+          Student__c = :student.Id
+          AND Semester__c = :student.Current_Semester__c
+      ];
+      List<String> lsSubjectClass = new List<String>();
+      for (Subject_Registration__c sr : subjectRegistraionQueries) {
+        lsSubjectClass.add(sr.Subject_Class__c);
+      }
       Notification notifications = new Notification();
       List<Notification__c> notificationQueried = [
-        SELECT Id, Name
+        SELECT
+          Id,
+          Name,
+          Body__c,
+          Faculty__c,
+          Major__c,
+          Student__c,
+          Subject__c,
+          Subject_Class__c,
+          Teacher__c,
+          Title__c
         FROM Notification__c
+        WHERE
+          Faculty__c = :student.Faculty__c
+          OR Subject_Class__c IN :lsSubjectClass
       ];
       return JSON.serialize(notifications);
     } catch (Exception e) {

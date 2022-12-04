@@ -57,7 +57,14 @@
   },
   onCreateError: function () {},
   handleExit: function (cmp) {
-    cmp.find("navService").navigate(cmp.get("v.pageReference"), true);
+    var isStudentAppInvoked = cmp.get("v.isStudentAppInvoked");
+    if (!isStudentAppInvoked) {
+      cmp.find("navService").navigate(cmp.get("v.pageReference"), true);
+    } else {
+      cmp.set("v.isModalOpen", false);
+      var dismissActionPanel = $A.get("e.force:closeQuickAction");
+      dismissActionPanel.fire();
+    }
   },
   onContinue: function (cmp) {
     cmp.set("v.newRequestFields.Id", cmp.get("v.recordId"));

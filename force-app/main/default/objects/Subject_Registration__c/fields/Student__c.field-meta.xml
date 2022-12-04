@@ -6,7 +6,7 @@
     <referenceTo>Student__c</referenceTo>
     <relationshipLabel>Subject Registrations</relationshipLabel>
     <relationshipName>Subject_Registrations</relationshipName>
-    <relationshipOrder>1</relationshipOrder>
+    <relationshipOrder>0</relationshipOrder>
     <reparentableMasterDetail>false</reparentableMasterDetail>
     <trackTrending>false</trackTrending>
     <type>MasterDetail</type>
