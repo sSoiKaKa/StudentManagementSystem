@@ -1,5 +1,7 @@
+/* eslint-disable no-console */
 ({
-    myAction : function(component, event, helper) {
-
-    }
-})
+  init: function (cmp, event, helper) {
+    console.log("init: ");
+    helper.getStudentInfo(cmp, event, helper);
+  }
+});
