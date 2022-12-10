@@ -596,16 +596,13 @@
 		<name>PostTemplate</name>
 	</types>
 	<types>
-		<members>*</members>
+		<members>Realty Admin</members>
+		<members>Student</members>
 		<name>Profile</name>
 	</types>
 	<types>
 		<members>*</members>
 		<name>ProfilePasswordPolicy</name>
-	</types>
-	<types>
-		<members>*</members>
-		<name>ProfileSessionSetting</name>
 	</types>
 	<types>
 		<members>*</members>
@@ -660,10 +657,6 @@
 	<types>
 		<members>*</members>
 		<name>Scontrol</name>
-	</types>
-	<types>
-		<members>*</members>
-		<name>Settings</name>
 	</types>
 	<types>
 		<members>*</members>
