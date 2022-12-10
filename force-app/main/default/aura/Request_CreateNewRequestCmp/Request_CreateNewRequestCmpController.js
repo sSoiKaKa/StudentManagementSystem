@@ -4,6 +4,7 @@
   init: function (cmp, event, helper) {
     console.log("init...");
     helper.setVisibleFieldList(cmp, helper);
+    helper.getStudentInformation(cmp);
     // set up navigation for closing
     var pageReference = {
       type: "standard__objectPage",
@@ -70,7 +71,6 @@
       "lsVisibleFieldsWHeader: ",
       cmp.get("v.lsVisibleFieldsWHeader")
     );
-    helper.getStudentInformation(cmp);
   },
   onSubmit: function (cmp, event, helper) {
     console.log("onSubmit...");

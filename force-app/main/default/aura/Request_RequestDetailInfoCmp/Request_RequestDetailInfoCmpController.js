@@ -13,12 +13,11 @@
         break;
     }
   },
-  updateStudentInformation: function (cmp, event, helper) {
+  getStudentInfo: function (cmp, event) {
     console.log("getStudentInfo...");
     var params = event.getParam("arguments");
     if (params) {
       cmp.set("v.studentInfo", params.studentInfoFromParent);
-      helper.generateDataForEachRequest(cmp, event, helper);
     }
   },
   updateRequestRecord: function (cmp, event, helper) {
@@ -29,6 +28,7 @@
       cmp.set("v.requestHeader", params.requestHeader);
       cmp.set("v.requestType", params.requestType);
       cmp.set("v.requestFields", params.requestFields);
+      helper.generateDataForEachRequest(cmp, event, helper);
     }
   },
   retrieveSemesterTranscriptData: function (cmp, event, helper) {

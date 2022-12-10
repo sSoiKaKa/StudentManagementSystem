@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-console */
 ({
   getNotifications: function (cmp, event, helper) {
@@ -10,6 +11,19 @@
       if (state === "SUCCESS") {
         var returnValue = response.getReturnValue();
         var notifications = JSON.parse(returnValue);
+        console.log("notifications: ", notifications);
+        for (var i = 0; i < notifications.classNotifications.length; i++) {
+          notifications.classNotifications[i].CreatedDate =
+            notifications.classNotifications[i].CreatedDate.substring(0, 10);
+        }
+        for (var j = 0; j < notifications.facultyNotifications.length; j++) {
+          notifications.facultyNotifications[j].CreatedDate =
+            notifications.facultyNotifications[j].CreatedDate.substring(0, 10);
+        }
+        for (var k = 0; k < notifications.personalNotifications.length; k++) {
+          notifications.personalNotifications[i].CreatedDate =
+            notifications.personalNotifications[k].CreatedDate.substring(0, 10);
+        }
         console.log("notifications: ", notifications);
         if (returnValue) {
           cmp.set("v.notifications", notifications);

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Notification_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>Notification__c</pageOrSobjectType>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Notification_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>Notification__c</pageOrSobjectType>
+    </actionOverrides>
+    <brand>
+        <headerColor>#0070D2</headerColor>
+        <logo>Logodhbk_1</logo>
+        <logoVersion>1</logoVersion>
+        <shouldOverrideOrgTheme>true</shouldOverrideOrgTheme>
+    </brand>
+    <description>Admin System</description>
+    <formFactors>Small</formFactors>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
+    <label>Admin System</label>
+    <navType>Standard</navType>
+    <tabs>Faculty__c</tabs>
+    <tabs>Student__c</tabs>
+    <tabs>Notification__c</tabs>
+    <tabs>Request__c</tabs>
+    <tabs>Subject__c</tabs>
+    <uiType>Lightning</uiType>
+    <utilityBar>Student_Management_System_UtilityBar</utilityBar>
+</CustomApplication>

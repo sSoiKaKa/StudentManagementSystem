@@ -2,7 +2,7 @@
   @description       : 
   @author            : Tuan Tran
   @group             : 
-  @last modified on  : 12-05-2022
+  @last modified on  : 12-08-2022
   @last modified by  : Tuan Tran
 -->
 <aura:component
@@ -14,7 +14,7 @@
   <aura:attribute name="activeSections" type="List" default="['Faculty']" />
   <aura:handler name="init" value="{!this}" action="{!c.init}" />
   <lightning:card
-    title="Your Notifications"
+    title="Announcements"
     iconName="standard:contact"
     variant="base"
     class="slds-card_boundary"
@@ -33,6 +33,12 @@
             <div class="slds-m-around_small">
               <p class="slds-text-title_bold" style="font-size: 1rem">
                 {!item.Title__c}
+              </p>
+              <p
+                class="slds-text-color_inverse-weak"
+                style="font-size: 0.8125rem"
+              >
+                From {!item.From__c} on {!item.CreatedDate}
               </p>
               <p style="font-size: 0.625rem">
                 <a href="{! ('/' + item.Id) }" target="_blank">View Detail</a>
@@ -53,6 +59,12 @@
             <div class="slds-m-around_small">
               <p class="slds-text-title_bold" style="font-size: 1rem">
                 {!item.Title__c}
+              </p>
+              <p
+                class="slds-text-color_inverse-weak"
+                style="font-size: 0.8125rem"
+              >
+                From {!item.From__c} on {!item.CreatedDate}
               </p>
               <p style="font-size: 0.625rem">
                 <a href="{! ('/' + item.Id) }" target="_blank">View Detail</a>
@@ -76,6 +88,12 @@
             <div class="slds-m-around_small">
               <p class="slds-text-title_bold" style="font-size: 1rem">
                 {!item.Title__c}
+              </p>
+              <p
+                class="slds-text-color_inverse-weak"
+                style="font-size: 0.8125rem"
+              >
+                From {!item.From__c} on {!item.CreatedDate}
               </p>
               <p style="font-size: 0.625rem">
                 <a href="{! ('/' + item.Id) }" target="_blank">View Detail</a>

@@ -8,5 +8,13 @@
         <plural>true</plural>
         <value>Requests</value>
     </caseValues>
+    <quickActions>
+        <label></label>
+        <name>Get_Transcript</name>
+    </quickActions>
+    <recordTypes>
+        <label></label>
+        <name>Request_Status_Path</name>
+    </recordTypes>
     <startsWith>Consonant</startsWith>
 </CustomObjectTranslation>

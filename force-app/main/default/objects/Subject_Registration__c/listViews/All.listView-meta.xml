@@ -3,6 +3,14 @@
     <fullName>All</fullName>
     <columns>NAME</columns>
     <columns>Semester__c</columns>
+    <columns>Subject_Name__c</columns>
+    <columns>Subject_Class_Name__c</columns>
+    <columns>Homework_Score__c</columns>
+    <columns>Mid_Term_Exam_Score__c</columns>
+    <columns>Final_Exam_Score__c</columns>
+    <columns>Overall_Score__c</columns>
+    <columns>Credits__c</columns>
+    <columns>Tuition__c</columns>
     <filterScope>Everything</filterScope>
     <label>All</label>
 </ListView>

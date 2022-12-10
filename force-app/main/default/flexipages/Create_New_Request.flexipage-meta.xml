@@ -7,6 +7,9 @@
                     <name>actionNames</name>
                     <valueList>
                         <valueListItems>
+                            <value>Request__c.Get_Transcript</value>
+                        </valueListItems>
+                        <valueListItems>
                             <value>PrintableView</value>
                         </valueListItems>
                     </valueList>

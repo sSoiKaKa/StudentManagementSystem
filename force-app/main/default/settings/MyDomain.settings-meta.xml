@@ -5,7 +5,6 @@
     <domainPartition>develop</domainPartition>
     <enableNativeBrowserForAuthOnAndroid>false</enableNativeBrowserForAuthOnAndroid>
     <enableNativeBrowserForAuthOnIos>false</enableNativeBrowserForAuthOnIos>
-    <logRedirections>false</logRedirections>
     <myDomainName>dut2-dev-ed</myDomainName>
     <myDomainSuffix>MySalesforce</myDomainSuffix>
     <redirectForceComSiteUrls>true</redirectForceComSiteUrls>

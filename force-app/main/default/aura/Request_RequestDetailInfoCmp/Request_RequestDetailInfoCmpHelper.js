@@ -10,17 +10,8 @@
       case "Semester Transcript Issuance":
         cmp.set("v.cardTitle", "Semester Transcript");
         break;
-      case "Academic Year Transcript Issuance":
-        helper.getAcademicYearTranscriptData(cmp, event, helper);
-        break;
       default:
         break;
     }
-  },
-  getAcademicYearTranscriptData: function (cmp, event, helper) {
-    console.log('getAcademicYearTranscriptData...');
-    var studentInfo = cmp.get("v.studentInfo");
-    var studentId = studentInfo.Id;
-    var admissionYear = studentInfo.Admission_Day__c.substring(0, 4);
   }
 });

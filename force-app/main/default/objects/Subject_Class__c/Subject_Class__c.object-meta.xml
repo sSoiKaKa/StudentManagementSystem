@@ -156,11 +156,14 @@
     <label>Subject Class</label>
     <nameField>
         <displayFormat>SJC-{0000000000}</displayFormat>
-        <label>Subject Class Name</label>
+        <label>Subject Class ID</label>
         <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Subject Classes</pluralLabel>
-    <searchLayouts></searchLayouts>
+    <searchLayouts>
+        <searchResultsAdditionalFields>Subject_Name__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Subject_Class_Name__c</searchResultsAdditionalFields>
+    </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
     <visibility>Public</visibility>
 </CustomObject>

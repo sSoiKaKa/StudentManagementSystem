@@ -5,8 +5,10 @@
     <columns>Request_Header__c</columns>
     <columns>Student_Name__c</columns>
     <columns>Status__c</columns>
-    <columns>CREATED_DATE</columns>
+    <columns>Is_Submitted__c</columns>
     <columns>Submitting_Date__c</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>Unit_Cost__c</columns>
     <filterScope>Everything</filterScope>
     <label>All</label>
 </ListView>

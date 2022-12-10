@@ -2,10 +2,10 @@
  * @description       :
  * @author            : Tuan Tran
  * @group             :
- * @last modified on  : 12-05-2022
+ * @last modified on  : 12-10-2022
  * @last modified by  : Tuan Tran
  **/
-public with sharing class StudentApp_StudentController {
+public without sharing class StudentApp_StudentController {
   @AuraEnabled
   public static String getStudentInfoForCurrentUser() {
     System.debug('getStudentInfoForCurrentUser...');
@@ -117,12 +117,15 @@ public with sharing class StudentApp_StudentController {
           Subject__c,
           Subject_Class__c,
           Teacher__c,
-          Title__c
+          From__c,
+          Title__c,
+          CreatedDate
         FROM Notification__c
         WHERE
           Faculty__c = :student.Faculty__c
           OR Subject_Class__c IN :lsSubjectClass
           OR Student__c = :student.Id
+        ORDER BY CreatedDate DESC
       ];
       List<Notification__c> schoolNotifications = new List<Notification__c>();
       List<Notification__c> facultyNotifications = new List<Notification__c>();

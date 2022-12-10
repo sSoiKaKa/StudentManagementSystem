@@ -59,6 +59,46 @@
             <field>Subject_Name__c</field>
             <table>Subject__c</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Number_of_Credits__c</field>
+            <table>Subject__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Is_Optional__c</field>
+            <table>Subject__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Prerequisite_Subject__c</field>
+            <table>Subject__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Parallel_Subject__c</field>
+            <table>Subject__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Semester__c</field>
+            <table>Subject__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Faculty_Name__c</field>
+            <table>Subject__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Parallel_Subject_Name__c</field>
+            <table>Subject__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Prerequisite_Subject_Name__c</field>
+            <table>Subject__c</table>
+        </columns>
         <masterLabel>Subjects</masterLabel>
     </sections>
     <sections>
@@ -188,6 +228,26 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Student__c</field>
+            <table>Subject__c.Subject_Classes__r.Subject_Registrations__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Tuition__c</field>
+            <table>Subject__c.Subject_Classes__r.Subject_Registrations__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Subject_Name__c</field>
+            <table>Subject__c.Subject_Classes__r.Subject_Registrations__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Subject_Class_Name__c</field>
+            <table>Subject__c.Subject_Classes__r.Subject_Registrations__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Credits__c</field>
             <table>Subject__c.Subject_Classes__r.Subject_Registrations__r</table>
         </columns>
         <masterLabel>Subject Registrations</masterLabel>

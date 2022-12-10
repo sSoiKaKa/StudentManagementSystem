@@ -8,5 +8,27 @@
         <plural>true</plural>
         <value>Notifications</value>
     </caseValues>
+    <layouts>
+        <layout>Notification Layout</layout>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>To</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Notifications Layout for User</layout>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>To</section>
+        </sections>
+    </layouts>
     <startsWith>Consonant</startsWith>
 </CustomObjectTranslation>

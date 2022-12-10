@@ -89,7 +89,55 @@
         <type>ConnectedApp</type>
     </appMenuItems>
     <appMenuItems>
-        <name>Student_Management_System</name>
+        <name>Admin_System</name>
+        <type>CustomApplication</type>
+    </appMenuItems>
+    <appMenuItems>
+        <name>APXTConga4__CongaMerge</name>
+        <type>CustomApplication</type>
+    </appMenuItems>
+    <appMenuItems>
+        <name>Conga_Composer</name>
+        <type>ConnectedApp</type>
+    </appMenuItems>
+    <appMenuItems>
+        <name>Conga_Composer_AP</name>
+        <type>ConnectedApp</type>
+    </appMenuItems>
+    <appMenuItems>
+        <name>Conga_Composer_EU</name>
+        <type>ConnectedApp</type>
+    </appMenuItems>
+    <appMenuItems>
+        <name>Conga_Composer_Lightning</name>
+        <type>ConnectedApp</type>
+    </appMenuItems>
+    <appMenuItems>
+        <name>Conga_Composer_Offline</name>
+        <type>ConnectedApp</type>
+    </appMenuItems>
+    <appMenuItems>
+        <name>Conga_Composer_SF1</name>
+        <type>ConnectedApp</type>
+    </appMenuItems>
+    <appMenuItems>
+        <name>Conga_Composer_SF1_AP</name>
+        <type>ConnectedApp</type>
+    </appMenuItems>
+    <appMenuItems>
+        <name>Conga_Composer_SF1_EU</name>
+        <type>ConnectedApp</type>
+    </appMenuItems>
+    <appMenuItems>
+        <name>Conga_Platform_prod</name>
+        <type>ConnectedApp</type>
+    </appMenuItems>
+    <appMenuItems>
+        <name>Conga_Scheduler</name>
+        <type>ConnectedApp</type>
+    </appMenuItems>
+    <appMenuItems>
+        <name>Student_Support</name>
         <type>CustomApplication</type>
     </appMenuItems>
 </AppMenu>

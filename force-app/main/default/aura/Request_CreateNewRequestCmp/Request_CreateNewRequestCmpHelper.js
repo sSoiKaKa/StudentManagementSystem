@@ -55,7 +55,6 @@
       requestHeader: "Academic Year Transcript Issuance",
       visibleFields: [
         "isIsFreeIssuanceAvailableSelected",
-        "isAcademicTermSelected",
         "isQuantitySelected",
         "isFeeSelected",
         "isUnitCostSelected",

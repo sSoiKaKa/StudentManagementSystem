@@ -19,13 +19,9 @@
   <aura:attribute name="requestError" type="String" />
   <aura:attribute name="cardTitle" type="String" default="Data" />
   <aura:attribute name="semesterTranscriptData" type="List" default="[]" />
-  <aura:attribute name="yearTranscriptData" type="List" default="[]" />
 
   <aura:handler name="init" value="{!this}" action="{!c.init}" />
-  <aura:method
-    name="updateStudentInformation"
-    action="{!c.updateStudentInformation}"
-  >
+  <aura:method name="updateStudentInformation" action="{!c.getStudentInfo}">
     <aura:attribute name="studentInfoFromParent" type="Object" />
   </aura:method>
   <aura:method name="updateRequestRecord" action="{!c.updateRequestRecord}">
